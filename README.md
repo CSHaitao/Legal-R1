@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="fig/logo.png" alt="Legal-R1 Logo" width="60%">
+  <img src="fig/logo.png" alt="Legal-R1 Logo" width="30%">
 </p>
 
 <h1 align="center">
@@ -47,7 +47,7 @@
 - **强化学习**：采用多阶段课程学习，从简单到复杂逐步塑造推理能力，形成更内化、更自主的"法律思维"模式
 
 <p align="center">
-  <img src="fig/overview.pdf" alt="Legal-R1 Overview" width="90%"/>
+  <img src="fig/overview.png" alt="Legal-R1 Overview" width="90%"/>
 </p>
 
 **Legal-R1-8B** 在**法规解释、判例法推理、法律问答、文档起草**等任务上超越通用 LLM 和现有法律模型。在 **LexEval、LewBench、JecQA** 等权威评测中，整体性能可媲美更大参数规模的通用模型（如 **DeepSeek-R1、Qwen3-Max**），并在部分任务上实现超越。尤其在**法律概念理解、法条记忆、多跳推理**等关键任务上，**Legal-R1-8B** 达到了当前开源模型的**领先水平**。
@@ -146,7 +146,7 @@ Legal-R1 的中期训练采用精心构建的混合语料库，整合通用数�
 3. **质量控制**：我们使用大模型对思维链进行知识内化和推理合成，得到最终的高质量思维链。之后采用 LLM-as-Judge 范式进行多维度评估，从事实准确性、法律适用性、逻辑严谨性等角度确保生成内容的可靠性和实用性
 
 <p align="center">
-  <img src="fig/sft_workflow.pdf" alt="SFT 工作流程" width="90%">
+  <img src="fig/sft_workflow.png" alt="SFT 工作流程" width="90%">
 </p>
 
 #### 数据规模
