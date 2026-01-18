@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="fig/logo.png" alt="Legal-R1 Logo" width="30%">
+  <img src="fig/logo.png" alt="Legal-R1 Logo" width="20%">
 </p>
 
 <h1 align="center">
