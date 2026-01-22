@@ -13,25 +13,25 @@
   <a href="https://your-website.com" target="_blank">
     <img src="https://img.shields.io/badge/Website-Legal--R1-blue?style=flat-square&logo=world&logoColor=white" alt="Website"/>
   </a>
-  <a href="https://huggingface.co/your-org/Legal-R1-1.7B" target="_blank">
+  <a href="https://huggingface.co/CSHaitao/LegalOne-R1-1.7B" target="_blank">
     <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--1.7B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="Legal-R1 1.7B"/>
   </a>
-  <a href="https://huggingface.co/your-org/Legal-R1-4B" target="_blank">
+  <a href="https://huggingface.co/CSHaitao/LegalOne-R1-4B" target="_blank">
     <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--4B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="Legal-R1 4B"/>
   </a>
-  <a href="https://huggingface.co/your-org/Legal-R1-8B" target="_blank">
+  <a href="https://huggingface.co/CSHaitao/LegalOne-R1-8B" target="_blank">
     <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--8B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="Legal-R1 8B"/>
   </a>
   <a href="https://huggingface.co/datasets/your-org/legal-dataset" target="_blank">
     <img src="https://img.shields.io/badge/Dataset-Legal%20Data-green?style=flat-square&logo=huggingface&logoColor=white" alt="Dataset"/>
   </a>
-  <a href="https://github.com/your-org/LegalKit" target="_blank">
+  <a href="https://github.com/DavidMiao1127/LegalKit" target="_blank">
     <img src="https://img.shields.io/badge/Evaluation-LegalKit-purple?style=flat-square&logo=github&logoColor=white" alt="LegalKit"/>
   </a>
 </p>
 
 <p align="center">
-  <a href="README.md">📖 English</a> | <a href="README_CN.md">📖 中文</a>
+  <a href="README_EN.md">📖 English</a> | <a href="README.md">📖 中文</a>
 </p>
 
 ---
@@ -43,7 +43,7 @@
 **Legal-R1** 是一系列专门为中文法律领域训练的LLM，采用**多阶段训练框架**来联合增强法律知识和推理能力。模型基于 **昇腾 Atlas 910B** 计算平台与 **昇思 MindSpore** AI 框架完成训练。
 
 - **中期训练**：基于困惑度的数据调度方法-Plasticity-Adjusted Sampling (PAS)，从广泛、异构的通用数据平滑过渡到专业化法律任务，在有效注入法律知识的同时避免灾难性遗忘。
-- **监督微调**：通过多智能体系统提炼结构化的法律推理流程，培养模型执行可靠推理的能力。
+- **监督微调**：我们建立了一个模拟专业法律工作流程的代理系统Legal Agentic CoT Distillation (LEAD)，能够综合大规模、高一致性的推理轨迹，培养模型执行可靠推理的能力。
 - **强化学习**：采用多阶段课程学习，从简单到复杂逐步塑造推理能力，形成更内化、更自主的"法律思维"模式。
 
 <p align="center">
@@ -60,9 +60,9 @@
 
 | 模型 | 参数量 | 基座模型 | 支持语言 | 链接 |
 |-------|-----------|------------|---------------------|------|
-| Legal-R1-1.7B | 1.7B | Qwen3-1.7B-Base | 中文 & 英文 | [HF Link](#) |
-| Legal-R1-4B | 4B | Qwen3-4B-Base | 中文 & 英文 | [HF Link](#) |
-| Legal-R1-8B | 8B | Qwen3-8B-Base | 中文 & 英文 | [HF Link](#) |
+| Legal-R1-1.7B | 1.7B | Qwen3-1.7B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-1.7B) |
+| Legal-R1-4B | 4B | Qwen3-4B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-4B) |
+| Legal-R1-8B | 8B | Qwen3-8B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-8B) |
 
 本次发布包含 1.7B、4B 和 8B 三个参数规模的模型，覆盖从轻量级部署到高性能应用的不同场景需求。随着算力资源的持续扩充，我们计划在未来推出更大规模的模型版本，进一步提升法律推理的深度与广度。
 
@@ -135,15 +135,16 @@ Legal-R1 的中期训练采用精心构建的混合语料库，整合通用数�
 
 我们观察到真实法律案例文档天然编码了丰富的社会事实、核心争议焦点和结构化法律推理，本质上极具监督价值。然而，这类文档通常在终审判决后才撰写，且面向专业读者，导致大量底层推理过程被高度压缩或省略。关键中间步骤——如识别关键事实和明确争议焦点——往往未得到明确表述。当底层逻辑隐藏于专业表达之后，模型便难以习得清晰可迁移的推理链条。
 
-为系统性地获得高质量的法律思维链数据，我们开发了法律智能体 CoT 蒸馏管道。该流程包含三个阶段：
+为系统性地获得高质量的法律思维链数据，我们开发了模拟专业法律工作流程的 **LEAD (Legal Agentic CoT Distillation)** 系统。该流程包含四个阶段：
 
-1. **提示词收集**：提示词来源涵盖三个维度——文书结构化提取（从真实法律文档中提取结构化知识）、用户模拟（模拟真实用户咨询场景）、真实世界（收集实际法律应用场景），构建高质量的多样化提示词模板
-2. **响应收集**：我们避免要求大模型直接完成复杂法律任务，而是将其分解为一系列更简单、可解释的子步骤，让模型分步完成。每个阶段都配置定制化提示和外部知识支持，将全局性法律推理转化为局部的、可控的子问题。
-3. **质量控制**：我们使用大模型对思维链进行知识内化和推理合成，得到最终的高质量思维链。之后采用 LLM-as-Judge 范式进行多维度评估，从事实准确性、法律适用性、逻辑严谨性等角度确保生成内容的可靠性和实用性
+1. **提示词收集**：通过结构化案例语料库构建、结构逻辑蒸馏、多视角用户模拟和真实查询对齐四个环节，构建高质量的多样化提示词模板
+2. **代理式思维链综合**：针对通用模型存在的程序认知障碍问题，我们模拟法律专家真实认知过程的框架。通过与资深从业者合作，我们将抽象的司法推理形式化为结构化的、明确的代理工作流。
+3. **轨迹精炼**：通过知识内化消除教师-学生模型间的信息差距，通过推理收敛将多阶段局部思维链合并为全局连贯的端到端推理轨迹
+4. **质量控制**：采用启发式过滤和 LLM-as-judge 评估，从推理质量、一致性、答案-推理对齐、简洁性、语言等多个维度确保生成内容的可靠性和实用性
 
-<p align="center">
+<!-- <p align="center">
   <img src="fig/sft_workflow.png" alt="SFT 工作流程" width="90%">
-</p>
+</p> -->
 
 基于高质量法律文书，通过智能体 CoT 蒸馏管道，我们合成了涵盖法律咨询、判决预测、法律摘要、法律适用、文书生成等多种经典司法场景的数据。同时，结合部分开源的通用指令遵循数据以保持模型的通用能力，最终获得 **500k** 高质量监督微调数据，为模型培养结构化的法律推理能力，并为后续强化学习奠定坚实基础。
 
@@ -161,17 +162,38 @@ Legal-R1 的中期训练采用精心构建的混合语料库，整合通用数�
 
 **LegalKit**是一个实用且可扩展的法律领域大模型评测工具包，统一了以下流程：数据集适配、模型生成、离线 JSON 评测、LLM-as-Judge 评审，同时提供可选的轻量级 Web UI，方便非命令行用户操作。欢迎使用！我们呼吁更多贴合真实法律场景评测的数据集，并希望可以集成到 LegalKit 中。
 
+### JecQA评测
+
+<p align="center">
+  <img src="fig/JecQA.png" alt="JecQA评测结果" width="90%"/>
+</p>
+
+### LexEval评测
+
+<p align="center">
+  <img src="fig/LexEval.png" alt="LexEval评测结果" width="90%"/>
+</p>
+
+### Lawbench评测
+
+<p align="center">
+  <img src="fig/Lawbench.png" alt="Lawbench评测结果" width="90%"/>
+</p>
+
+---
+
+**说明**：我们同时意识到现在的数据集没有聚焦于法律实务现实场景的考察，我们欢迎大家对模型进行更详细的评测并反馈 bad case，我们会进一步改进。
 
 ## 引用
 
 如果你觉得这项工作有用，请引用：
 
 ```bibtex
-@misc{legal-r12025,
-  title={Legal-R1: A Family of Legal Foundation Models for Reliable Legal Reasoning},
-  author={Legal-R1 Team},
+@misc{legalone-r12025,
+  title={LegalOne-R1: A Family of Legal Foundation Models for Reliable Legal Reasoning},
+  author={LegalOne-R1 Team},
   year={2025},
-  url={https://github.com/your-org/Legal-R1}
+  url={https://github.com/CSHaitao/LegalOne-R1}
 }
 ```
 
