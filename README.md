@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="fig/logo.png" alt="Legal-R1 Logo" width="20%">
+  <img src="fig/logo.png" alt="LegalOne-R1 Logo" width="20%">
 </p>
 
 <h1 align="center">
-  Legal-R1: A Family of Legal Foundation Models for Reliable Legal Reasoning
+  LegalOne-R1: A Family of Foundation Models for Reliable Legal Reasoning
 </h1>
 
 <p align="center">
@@ -14,13 +14,13 @@
     <img src="https://img.shields.io/badge/Website-Legal--R1-blue?style=flat-square&logo=world&logoColor=white" alt="Website"/>
   </a>
   <a href="https://huggingface.co/CSHaitao/LegalOne-R1-1.7B" target="_blank">
-    <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--1.7B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="Legal-R1 1.7B"/>
+    <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--1.7B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="LegalOne-R1 1.7B"/>
   </a>
   <a href="https://huggingface.co/CSHaitao/LegalOne-R1-4B" target="_blank">
-    <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--4B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="Legal-R1 4B"/>
+    <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--4B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="LegalOne-R1 4B"/>
   </a>
   <a href="https://huggingface.co/CSHaitao/LegalOne-R1-8B" target="_blank">
-    <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--8B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="Legal-R1 8B"/>
+    <img src="https://img.shields.io/badge/Hugging%20Face-Legal--R1--8B-yellow?style=flat-square&logo=huggingface&logoColor=white" alt="LegalOne-R1 8B"/>
   </a>
   <a href="https://huggingface.co/datasets/your-org/legal-dataset" target="_blank">
     <img src="https://img.shields.io/badge/Dataset-Legal%20Data-green?style=flat-square&logo=huggingface&logoColor=white" alt="Dataset"/>
@@ -40,17 +40,17 @@
 
 近年来，法律领域对可靠AI系统的需求快速增长。然而，法律推理既**知识密集**又**结构密集**，通用LLM往往存在法律知识理解不足、推理与实践脱节等问题，难以满足法律系统对可靠性的要求。
 
-**Legal-R1** 是一系列专门为中文法律领域训练的LLM，采用**多阶段训练框架**来联合增强法律知识和推理能力。模型基于 **昇腾 Atlas 910B** 计算平台与 **昇思 MindSpore** AI 框架完成训练。
+**LegalOne-R1** 是一系列专门为中文法律领域训练的LLM，采用**多阶段训练框架**来联合增强法律知识和推理能力。模型基于 **昇腾 Atlas 910B** 计算平台与 **昇思 MindSpore** AI 框架完成训练。
 
 - **中期训练**：基于困惑度的数据调度方法-Plasticity-Adjusted Sampling (PAS)，从广泛、异构的通用数据平滑过渡到专业化法律任务，在有效注入法律知识的同时避免灾难性遗忘。
 - **监督微调**：我们建立了一个模拟专业法律工作流程的代理系统Legal Agentic CoT Distillation (LEAD)，能够综合大规模、高一致性的推理轨迹，培养模型执行可靠推理的能力。
 - **强化学习**：采用多阶段课程学习，从简单到复杂逐步塑造推理能力，形成更内化、更自主的"法律思维"模式。
 
 <p align="center">
-  <img src="fig/overview.png" alt="Legal-R1 Overview" width="90%"/>
+  <img src="fig/overview.png" alt="LegalOne-R1 Overview" width="90%"/>
 </p>
 
-**Legal-R1-8B** 在**法规解释、判例法推理、法律问答、文档起草**等任务上超越通用 LLM 和现有法律模型。在 **LexEval、LewBench、JecQA** 等权威评测中，整体性能可媲美更大参数规模的通用模型（如 **DeepSeek-R1、Qwen3-Max**），并在部分任务上实现超越。尤其在**法律概念理解、法条记忆、多跳推理**等关键任务上，**Legal-R1-8B** 达到了当前开源模型的**领先水平**。
+**LegalOne-R1-8B** 在**法规解释、判例法推理、法律问答、文档起草**等任务上超越通用 LLM 和现有法律模型。在 **LexEval、LewBench、JecQA** 等权威评测中，整体性能可媲美更大参数规模的通用模型（如 **DeepSeek-R1、Qwen3-Max**），并在部分任务上实现超越。尤其在**法律概念理解、法条记忆、多跳推理**等关键任务上，**LegalOne-R1-8B** 达到了当前开源模型的**领先水平**。
 
 ---
 
@@ -60,25 +60,25 @@
 
 | 模型 | 参数量 | 基座模型 | 支持语言 | 链接 |
 |-------|-----------|------------|---------------------|------|
-| Legal-R1-1.7B | 1.7B | Qwen3-1.7B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-1.7B) |
-| Legal-R1-4B | 4B | Qwen3-4B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-4B) |
-| Legal-R1-8B | 8B | Qwen3-8B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-8B) |
+| LegalOne-R1-1.7B | 1.7B | Qwen3-1.7B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-1.7B) |
+| LegalOne-R1-4B | 4B | Qwen3-4B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-4B) |
+| LegalOne-R1-8B | 8B | Qwen3-8B-Base | 中文 & 英文 | [HF Link](https://huggingface.co/CSHaitao/LegalOne-R1-8B) |
 
 本次发布包含 1.7B、4B 和 8B 三个参数规模的模型，覆盖从轻量级部署到高性能应用的不同场景需求。随着算力资源的持续扩充，我们计划在未来推出更大规模的模型版本，进一步提升法律推理的深度与广度。
 
 ### 部署方法
 
-Legal-R1 可以像普通的 Qwen3 模型一样使用。你可以使用 [vLLM](https://github.com/vllm-project/vllm) 或 [Sglang](https://github.com/sgl-project/sglang) 等工具进行部署，也可以直接使用 transformers 进行推理：
+LegalOne-R1 可以像普通的 Qwen3 模型一样使用。你可以使用 [vLLM](https://github.com/vllm-project/vllm) 或 [Sglang](https://github.com/sgl-project/sglang) 等工具进行部署，也可以直接使用 transformers 进行推理：
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model = AutoModelForCausalLM.from_pretrained(
-    "your-org/Legal-R1-8B",
+    "your-org/LegalOne-R1-8B",
     torch_dtype="auto",
     device_map="auto"
 )
-tokenizer = AutoTokenizer.from_pretrained("your-org/Legal-R1-8B")
+tokenizer = AutoTokenizer.from_pretrained("your-org/LegalOne-R1-8B")
 
 input_text = "请根据以下提供的案件事实，从法律角度进行分析，并预测法院可能作出的判决。[案件描述]"
 messages = [{"role": "user", "content": input_text}]
@@ -96,7 +96,7 @@ outputs = model.generate(**inputs, max_new_tokens=2048)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 
-Legal-R1 采用"先思考后回答"的方式，输出格式如下：
+LegalOne-R1 采用"先思考后回答"的方式，输出格式如下：
 
 ```
 <think>
@@ -113,7 +113,7 @@ Legal-R1 采用"先思考后回答"的方式，输出格式如下：
 
 ### 中期训练语料
 
-Legal-R1 的中期训练采用精心构建的混合语料库，整合通用数据、法律数据和合成数据三大类，总计约 100B tokens，为模型提供扎实的知识基础。
+LegalOne-R1 的中期训练采用精心构建的混合语料库，整合通用数据、法律数据和合成数据三大类，总计约 100B tokens，为模型提供扎实的知识基础。
 
 **通用数据**：构建坚实的通用知识底座
 - 整合 FinWeb-Edu、FinePDFs、FineWiki、SkyPile-150B、IndustryCorpus、OpenNewsArchive、MathPile、Wanjuan、BaiduBaike-5.63M 等高质量开源语料。
@@ -176,6 +176,8 @@ LegalOne-R1系列模型在法律基础能力上表现突出，在LexEval、LawBe
   <img src="fig/LexEval.png" alt="LexEval评测结果" width="90%"/>
 </p>
 
+对于LexEval的生成类型题目，由于ROUGE不能准确反映模型能力，因此我们使用LLM-as-Judge的方法进行评估。
+
 ### Lawbench评测
 
 <p align="center">
@@ -210,16 +212,16 @@ LegalOne-R1系列模型在法律基础能力上表现突出，在LexEval、LawBe
 
 ## 免责声明
 
-**Legal-R1** 是基于深度学习技术构建的法律大语言模型，旨在为法律研究和应用提供辅助工具。模型可以提供有价值的法律信息分析和推理参考，但**不应视为法律专业人士的替代品**。
+**LegalOne-R1** 是基于深度学习技术构建的法律大语言模型，旨在为法律研究和应用提供辅助工具。模型可以提供有价值的法律信息分析和推理参考，但**不应视为法律专业人士的替代品**。
 
 在重要的法律事务中，建议您咨询专业的法律顾问或律师。模型输出仅供参考，不构成正式的法律意见或建议。
 
 ## 联系方式
 
-如果您对 Legal-R1 有任何疑问、建议或想法，欢迎加入我们的讨论。您可以：
+如果您对 LegalOne-R1 有任何疑问、建议或想法，欢迎加入我们的讨论。您可以：
 
 - 提交 GitHub Issue 报告问题或提出功能请求
 - 发送邮件至 liht22@mails.tsinghua.edu.cn 进行技术讨论
 - 参与社区讨论，分享您的见解和经验
 
-我们衷心感谢您对 Legal-R1 项目的关注和参与！希望通过这个项目，能够为中文法律领域提供更智能、更可靠的解决方案。
+我们衷心感谢您对 LegalOne-R1 项目的关注和参与！希望通过这个项目，能够为中文法律领域提供更智能、更可靠的解决方案。
