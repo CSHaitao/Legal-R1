@@ -176,17 +176,11 @@ LegalOne系列模型在法律基础能力上表现突出，在LexEval、LawBench
   <img src="fig/LexEval.png" alt="LexEval评测结果" width="90%"/>
 </p>
 
-对于LexEval的生成类型题目，由于ROUGE不能准确反映模型能力，因此我们使用LLM-as-Judge的方法进行评估。
-
-### Lawbench评测
-
-<p align="center">
-  <img src="fig/Lawbench.png" alt="Lawbench评测结果" width="90%"/>
-</p>
+针对LexEval中的生成型任务，由于传统ROUGE指标无法有效表征模型性能，本研究采用LLM-as-Judge评估方案。评估过程以标准答案为基准，从多个维度对模型输出进行1-10分评分，并将平均得分转换为百分制，以确保与其他任务的可比性。
 
 ---
 
-**说明**：我们同时意识到现在的评估数据集没有聚焦于法律实务现实场景的考察，我们欢迎大家对模型进行更详细的评测并反馈 bad case，我们会进一步改进。我们同时也在推出基于rubric评测的实务数据集，敬请期待！
+**说明**：我们同时意识到现在的评估数据集没有聚焦于法律实务现实场景的考察，我们欢迎大家对模型进行更详细的评测并反馈 bad case 和 good case，我们会进一步改进。我们同时也在推出基于rubric评测的实务数据集，敬请期待！
 
 ## 引用
 
