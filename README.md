@@ -47,14 +47,14 @@
 - **强化学习**：采用多阶段课程学习，从简单到复杂逐步塑造推理能力，形成更内化、更自主的"法律思维"模式。
 
 <p align="center">
+  <img src="fig/performance.png" alt="性能对比" width="70%"/>
+</p>
+
+<p align="center">
   <img src="fig/overview.png" alt="LegalOne-R1 Overview" width="90%"/>
 </p>
 
 **LegalOne-8B** 在**法规解释、判例法推理、法律问答、文档起草**等任务上超越通用 LLM 和现有法律模型。在 **LexEval、JecQA** 等权威评测中，整体性能可媲美更大参数规模的通用模型（如 **DeepSeek-R1、Qwen3-Max**），并在部分任务上实现超越。尤其在**法律概念理解、法条记忆、多跳推理**等关键任务上，**LegalOne-8B** 达到了当前开源模型的**领先水平**。
-
-<p align="center">
-  <img src="fig/performance.png" alt="性能对比" width="90%"/>
-</p>
 
 
 
@@ -432,10 +432,10 @@ LegalOne系列模型在法律基础能力上表现突出，在LexEval、JecQA等
 
 ## 联系方式
 
-如果您对 LegalOne-R1 有任何疑问、建议或想法，欢迎加入我们的讨论。您可以：
+如果您对 LegalOne 有任何疑问、建议或想法，欢迎加入我们的讨论。您可以：
 
 - 提交 GitHub Issue 报告问题或提出功能请求
 - 发送邮件至 liht22@mails.tsinghua.edu.cn 进行技术讨论
 - 参与社区讨论，分享您的见解和经验
 
-我们衷心感谢您对 LegalOne-R1 项目的关注和参与！希望通过这个项目，能够为中文法律领域提供更智能、更可靠的解决方案。
+我们衷心感谢您对 LegalOne 项目的关注和参与！希望通过这个项目，能够为中文法律领域提供更智能、更可靠的解决方案。
